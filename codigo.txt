@@ -1,0 +1,25 @@
+import heapq
+
+#introducir paciente
+#atender paciente
+
+cola = []
+
+#datos iniciales
+
+heapq.heappush(cola,(1,{ "name": "Rodrigo", "disease": "aibofobia" }))
+
+entrada_usuario = True
+
+while entrada_usuario:
+    nombre = input("Nombre del paciente: ")
+    disease = input("¿Qué le pasa? ")
+    paciente = { "name": nombre, "disease": disease }
+    prioridad = int(input("Prioridad del 1 al 5, siendo 1 más prioritario: "))
+    heapq.heappush(cola,(prioridad,paciente))
+    entrada_usuario = bool(input("Intorducir más pacientes? 0 para no, 1 para sí"))
+    print(entrada_usuario)
+
+while cola:
+    prioridad, paciente = heapq.heappop(cola)
+    print(paciente)
